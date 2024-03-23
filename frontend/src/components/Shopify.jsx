@@ -7,14 +7,14 @@ export const Shopify = () => {
   const handleAuth = () => {
     const shopUrl = prompt("Please enter your shop URL (e.g., your-shop-name.myshopify.com)", "");
     if (shopUrl) {
-      window.location.href = `http://localhost:8080/shopify?shop=${shopUrl}`;
+      window.location.href = `/shopify?shop=${shopUrl}`;
     }
   };
 
   const fetchProducts = () => {
     const shop = prompt("Enter your shop name to fetch products (e.g., your-shop-name.myshopify.com)", "");
     if (shop) {
-      axios.get(`http://localhost:8080/fetch-products?shop=${shop}`)
+      axios.get(`/fetch-products?shop=${shop}`)
         .then(response => {
           console.log(response.data);
           setProducts(response.data)
